@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neptune: #2c3e6b;
+  --color-neptune-dark: #1e2d4f;
+  --color-dusty-blue: #7e9bb9;
+  --color-dusty-blue-light: #a8c0d6;
+  --color-sage: #8a9a7b;
+  --color-sage-light: #b0c4a0;
+  --color-gray-warm: #b5b3ae;
+  --color-brass: #b5985a;
+  --color-brass-light: #d4ba7a;
+  --color-cream: #f7f5f0;
+  --color-ivory: #fdfcf9;
+
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: #2c3e6b;
+  background: #fdfcf9;
+}
+
+::selection {
+  background: #a8c0d680;
+  color: #1e2d4f;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  border-radius: 1rem;
+  z-index: 1;
+}
+
