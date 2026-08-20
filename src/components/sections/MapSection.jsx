@@ -67,7 +67,9 @@ export function MapSection() {
             src="https://yandex.ru/map-widget/v1/?ll=44.069403%2C56.328509&z=14&pt=44.069403%2C56.328509%2Cpm2rdl&lang=ru_RU"
             width="100%"
             height="450"
+            style={{ border: 0, display: "block" }}
             allowFullScreen
+            loading="lazy"
           />
 
         </motion.div>
