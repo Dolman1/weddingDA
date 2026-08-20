@@ -6,7 +6,7 @@ export const ADDRESS =
 export const TELEGRAM_NICKNAME = "ssb_1107";
 
 export const TELEGRAM_MESSAGE = [
-  "Привет, Свет.",
+  "Привет, Свет!",
   "",
   "По свадьбе Даниила и Арины 30.04.2027 есть идея...",
 ].join("\n");

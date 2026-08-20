@@ -39,8 +39,8 @@ export function DetailsSection() {
     {
       icon: MapPin,
       title: "Место",
-      text: "Набережная Гребного канала",
-      sub: "д. 109, Нижний Новгород",
+      text: "Оранжерея на Гребном",
+      sub: "Гребной канал, остров Печёрские Пески",
       y: card3Y,
       o: card3O,
     },
