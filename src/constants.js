@@ -1,7 +1,17 @@
 export const WEDDING_AT = new Date("2027-04-30T17:00:00+03:00");
 
 export const ADDRESS =
-  "остров Печёрские Пески, Набережная Гребного канала, д. 109, Нижний Новгород";
+  "Оранжерея на Гребном, остров Печёрские Пески, Нижний Новгород";
+
+export const TELEGRAM_NICKNAME = "ssb_1107";
+
+export const TELEGRAM_MESSAGE = [
+  "Привет, Свет.",
+  "",
+  "По свадьбе Даниила и Арины 30.04.2027 есть идея...",
+].join("\n");
+
+export const TELEGRAM_URL = `https://t.me/${TELEGRAM_NICKNAME}?text=${encodeURIComponent(TELEGRAM_MESSAGE)}`;
 
 export const easeOut = [0.25, 0.46, 0.45, 0.94];
 
@@ -33,35 +43,3 @@ export const schedule = [
   { time: "21:00", title: "Вечерняя программа", desc: "Музыка, танцы, торт и сюрпризы" },
   { time: "23:00", title: "Завершение", desc: "Финальный танец и прощание" },
 ];
-
-export const googleCalUrl =
-  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-  `&text=${encodeURIComponent("Свадьба Даниила и Арины")}` +
-  "&dates=20270430T140000Z/20270430T200000Z" +
-  `&location=${encodeURIComponent(ADDRESS)}` +
-  `&details=${encodeURIComponent("Сбор гостей в 17:00")}`;
-
-export function downloadIcs() {
-  const ics = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//DA Wedding//RU",
-    "CALSCALE:GREGORIAN",
-    "BEGIN:VEVENT",
-    "DTSTART;TZID=Europe/Moscow:20270430T170000",
-    "DTEND;TZID=Europe/Moscow:20270430T230000",
-    "SUMMARY:Свадьба Даниила и Арины",
-    `LOCATION:${ADDRESS}`,
-    "DESCRIPTION:Сбор гостей в 17:00",
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
-
-  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "svadba-daniil-arina.ics";
-  a.click();
-  URL.revokeObjectURL(url);
-}

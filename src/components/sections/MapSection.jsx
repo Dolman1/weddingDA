@@ -44,7 +44,7 @@ export function MapSection() {
 
         <Reveal className="mt-6 text-center" delay={0.1}>
           <p className="font-sans text-base text-neptune/70 md:text-lg">
-            остров Печёрские Пески, Набережная Гребного канала, д. 109
+            Оранжерея на Гребном, остров Печёрские Пески
             <br />
             Нижний Новгород, Нижегородская обл., 603093
           </p>
@@ -64,13 +64,12 @@ export function MapSection() {
         >
           <iframe
             title="Карта места проведения"
-            src="https://yandex.ru/map-widget/v1/?ll=44.069403%2C56.328509&z=16&pt=44.069403%2C56.328509%2Cpm2rdl&lang=ru_RU"
+            src="https://yandex.ru/map-widget/v1/?ll=44.069403%2C56.328509&z=14&pt=44.069403%2C56.328509%2Cpm2rdl&lang=ru_RU"
             width="100%"
             height="450"
-            style={{ border: 0, display: "block" }}
             allowFullScreen
-            loading="lazy"
           />
+
         </motion.div>
 
         <Reveal className="mt-8 flex justify-center" delay={0.2}>

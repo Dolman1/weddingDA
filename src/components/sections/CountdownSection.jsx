@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { CalendarDays, CalendarPlus } from "lucide-react";
-import { WEDDING_AT, downloadIcs, easeOut, googleCalUrl } from "../../constants";
+import { WEDDING_AT, easeOut } from "../../constants";
 import { useCountdown } from "../../hooks/useCountdown";
 import { Reveal } from "../ui";
 
@@ -8,7 +8,7 @@ function CountUnit({ value, label }) {
   const padded = String(value).padStart(2, "0");
 
   return (
-    <div className="flex min-w-[4.5rem] flex-col items-center sm:min-w-[5.5rem]">
+    <div className="flex min-w-18 flex-col items-center sm:min-w-22">
       <div className="relative flex h-16 w-full items-center justify-center overflow-hidden rounded-xl border border-dusty-blue/15 bg-ivory/80 shadow-sm sm:h-20">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { Phone } from "lucide-react";
+import { Send } from "lucide-react";
+import { TELEGRAM_URL } from "../../constants";
 import { Divider, Reveal } from "../ui";
 
 export function ContactsSection() {
@@ -18,18 +19,21 @@ export function ContactsSection() {
 
         <Reveal delay={0.15}>
           <p className="mt-8 font-sans text-base leading-relaxed text-neptune/70 md:text-lg">
-            Если у вас есть вопросы по организации, не стесняйтесь обращаться.
-            Будем благодарны, если заранее подтвердите своё присутствие.
+            Если у вас есть вопросы по организации или идеи и сюрпризы, не стесняйтесь обращаться к нашему
+            <span className="font-medium text-neptune"> куратору свадьбы. </span>
           </p>
           <motion.a
-            href="tel:+111111111"
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="mt-8 inline-flex items-center gap-3 rounded-full border border-dusty-blue/20 bg-cream/80 px-6 py-4 shadow-sm"
           >
-            <Phone className="h-5 w-5 text-neptune" />
+
+            <Send className="h-5 w-5 text-neptune" />
             <span className="font-sans text-lg font-medium text-neptune transition-colors hover:text-brass">
-              +1 (111) 111-11-11
+              Написать в Telegram
             </span>
           </motion.a>
         </Reveal>
