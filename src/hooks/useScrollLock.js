@@ -32,6 +32,10 @@ function applyLock() {
   window.addEventListener("keydown", onKeyDown, { passive: false });
 }
 
+export function setScrollLockRestoreY(y) {
+  savedY = Math.max(0, y);
+}
+
 function releaseLock() {
   document.documentElement.classList.remove("scroll-locked");
   document.body.style.position = "";
@@ -40,7 +44,12 @@ function releaseLock() {
   document.body.style.right = "";
   document.body.style.width = "";
   window.removeEventListener("keydown", onKeyDown);
+
+  const html = document.documentElement;
+  const previous = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
   window.scrollTo(0, savedY);
+  html.style.scrollBehavior = previous;
 }
 
 export function useScrollLock(locked) {

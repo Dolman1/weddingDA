@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { sectionIds, sectionLabels } from "../../constants";
-import { useScrollLock } from "../../hooks/useScrollLock";
+import { setScrollLockRestoreY, useScrollLock } from "../../hooks/useScrollLock";
+
+function scrollToSection(id) {
+ document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", `#${id}`);
+}
 
 export function MobileNav({ activeIndex }) {
   const [open, setOpen] = useState(false);
+  const pendingId = useRef(null);
   useScrollLock(open);
+
+  useEffect(() => {
+    if (open) return;
+    const id = pendingId.current;
+    if (!id) return;
+    pendingId.current = null;
+    scrollToSection(id);
+  }, [open]);
 
   return (
     <>
@@ -25,17 +39,13 @@ export function MobileNav({ activeIndex }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex flex-col items-center justify-center overflow-hidden overscroll-none bg-ivory/96 backdrop-blur-md md:hidden"
+            className="fixed inset-0 z-70 flex flex-col items-center justify-center overflow-hidden overscroll-none bg-ivory/96 backdrop-blur-md md:hidden"
           >
             <button
               type="button"
                   onClick={(e) => {
                     e.preventDefault();
                     setOpen(false);
-                    window.setTimeout(() => {
-                      document.getElementById(id)?.scrollIntoView();
-                      history.replaceState(null, "", `#${id}`);
-                    }, 0);
                   }}
               aria-label="Закрыть меню"
               className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-dusty-blue/20 text-neptune"
@@ -54,11 +64,9 @@ export function MobileNav({ activeIndex }) {
                   href={`#${id}`}
                   onClick={(e) => {
                     e.preventDefault();
+                    pendingId.current = id;
+                    if (id === "hero") setScrollLockRestoreY(0);
                     setOpen(false);
-                    window.setTimeout(() => {
-                      document.getElementById(id)?.scrollIntoView();
-                      history.replaceState(null, "", `#${id}`);
-                    }, 0);
                   }}
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
