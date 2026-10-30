@@ -76,7 +76,7 @@ export function MapSection() {
 
         <Reveal className="mt-8 flex justify-center" delay={0.2}>
           <motion.a
-            href="https://yandex.ru/maps/?rtext=~56.328509%2C44.069403&rtt=auto"
+            href="https://yandex.ru/maps/?rtext=~56.328510%2C44.069403&rtt=auto"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}

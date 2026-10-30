@@ -27,10 +27,8 @@ export function DresscodeSection() {
 
         <Reveal className="mx-auto mt-10 max-w-2xl text-center" delay={0.15}>
           <p className="font-sans text-base leading-relaxed text-neptune/70 md:text-lg">
-            Мы будем рады, если ваш образ будет выдержан в&nbsp;нежных,
-            приглушённых тонах нашей свадебной палитры. Пожалуйста,
-            воздержитесь от&nbsp;
-            <span className="font-medium text-neptune">чёрных костюмов и чёрных платьев</span>.
+            Мы будем рады, если ваш образ будет выдержан в нежных,
+            приглушённых тонах нашей <span className="font-medium text-neptune"> свадебной палитры</span>.
           </p>
         </Reveal>
 
