@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
   font-family: var(--font-sans);
   color: #2c3e6b;
   background: #fdfcf9;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -40,9 +42,80 @@ body {
   color: #1e2d4f;
 }
 
-/* Leaflet overrides */
-.leaflet-container {
-  border-radius: 1rem;
-  z-index: 1;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
+::-webkit-scrollbar-track {
+  background: #fdfcf9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7e9bb9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2c3e6b;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  opacity: 0.035;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 62, 107, 0.04) 2px,
+      rgba(44, 62, 107, 0.04) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(181, 152, 90, 0.03) 2px,
+      rgba(181, 152, 90, 0.03) 3px
+    );
+}
+
+.petal {
+  animation-name: petal-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes petal-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(12px, -24px, 0);
+    opacity: 0.55;
+  }
+}
+
+html.scroll-locked,
+html.scroll-locked body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .petal {
+    animation: none !important;
+    opacity: 0.2;
+  }
+}
