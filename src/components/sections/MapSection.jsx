@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { Check, Copy, MapPin } from "lucide-react";
-import { ADDRESS } from "../../constants";
+import {ADDRESS, COPY_ADDRESS} from "../../constants";
 import { Divider, Reveal } from "../ui";
 
 export function MapSection() {
@@ -21,7 +21,7 @@ export function MapSection() {
 
   const copyAddress = async () => {
     try {
-      await navigator.clipboard.writeText(ADDRESS);
+      await navigator.clipboard.writeText(COPY_ADDRESS);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {

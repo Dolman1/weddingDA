@@ -31,7 +31,7 @@ export function DetailsSection() {
     {
       icon: Clock,
       title: "Время",
-      text: "17:00",
+      text: "15:00",
       sub: "Сбор гостей",
       y: card2Y,
       o: card2O,
